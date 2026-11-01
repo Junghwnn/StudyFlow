@@ -1,0 +1,378 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  background: #202b4b;
+  color: white;
+  padding: 40px 16px;
+}
+
+.sidebar h1 {
+  font-size: 28px;
+  margin: 0 16px 65px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 17px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: #39496c;
+}
+
+.content {
+  flex: 1;
+  padding: 45px 50px;
+  min-width: 0;
+}
+
+h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-top: 15px;
+  margin-bottom: 65px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-bottom: 65px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  min-height: 170px;
+}
+
+.stat-card p {
+  color: #64748b;
+  margin: 0 0 20px;
+}
+
+.stat-card strong {
+  font-size: 42px;
+}
+
+.task-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.section-header h3 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.add-button {
+  background: #4f46e5;
+  color: white;
+  padding: 13px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.task-row:last-child {
+  border-bottom: none;
+}
+
+.task-row h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.task-row p,
+.task-row span {
+  margin: 0;
+  color: #64748b;
+}
+
+
+/* StudyFlow Task Form */
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+}
+
+.task-form {
+  display: grid;
+  gap: 16px;
+  background: #f8fafc;
+  padding: 24px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  max-width: 600px;
+}
+
+.task-form h3 {
+  margin: 0;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #334155;
+  font-weight: 500;
+}
+
+.task-form input,
+.task-form select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  background: white;
+  color: #1e293b;
+}
+
+.task-form .add-button {
+  justify-self: start;
+}
+
+.task-info,
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.task-info input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+.task-actions span {
+  white-space: nowrap;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.priority {
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.priority-high {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.priority-medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.priority-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.delete-button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.delete-button:hover {
+  background: #fecaca;
+}
+
+/* Progress Bars */
+
+.progress-item {
+  margin-top: 30px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+.progress-track {
+  width: 100%;
+  height: 16px;
+  border-radius: 10px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6366f1;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+/* Calendar */
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.calendar-header h3 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.calendar-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.calendar-controls button {
+  width: 42px;
+  height: 42px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #1e293b;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.calendar-controls button:hover {
+  background: #e2e8f0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.calendar-weekday {
+  text-align: center;
+  padding: 15px 4px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  min-width: 0;
+  min-height: 110px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  color: #1e293b;
+}
+
+.calendar-day:hover {
+  background: #f8fafc;
+}
+
+.calendar-empty {
+  background: #f8fafc;
+  cursor: default;
+}
+
+.calendar-date {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.calendar-today {
+  border: 2px solid #6366f1;
+}
+
+.calendar-selected {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+.calendar-event {
+  display: block;
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selected-day-panel {
+  margin-top: 25px;
+  padding: 20px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+
+.selected-day-panel h3 {
+  margin-top: 0;
+}
