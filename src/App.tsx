@@ -61,6 +61,54 @@ function Sidebar() {
   );
 }
 
+function WeatherWidget() {
+  const [temperature, setTemperature] = useState<number | null>(null);
+  const [loadingWeather, setLoadingWeather] = useState(true);
+  const [weatherError, setWeatherError] = useState(false);
+
+  useEffect(() => {
+    async function loadWeather() {
+      try {
+        const response = await axios.get<{
+          current: { temperature_2m: number };
+        }>("https://api.open-meteo.com/v1/forecast", {
+          params: {
+            latitude: 37.8715,
+            longitude: -122.2730,
+            current: "temperature_2m",
+            temperature_unit: "fahrenheit",
+          },
+        });
+
+        setTemperature(response.data.current.temperature_2m);
+      } catch (error) {
+        console.error("Weather API error:", error);
+        setWeatherError(true);
+      } finally {
+        setLoadingWeather(false);
+      }
+    }
+
+    void loadWeather();
+  }, []);
+
+  return (
+    <section className="weather-card">
+      <div>
+        <h3>Berkeley Weather</h3>
+        <p>Plan your study day with the local weather.</p>
+      </div>
+      <strong>
+        {loadingWeather
+          ? "Loading..."
+          : weatherError
+          ? "Unavailable"
+          : `${temperature}°F`}
+      </strong>
+    </section>
+  );
+}
+
 function Dashboard({ tasks }: { tasks: Task[] }) {
   const completed = tasks.filter((t) => t.completed).length;
 
@@ -85,6 +133,7 @@ function Dashboard({ tasks }: { tasks: Task[] }) {
       <p className="subtitle">
         Welcome back! Here's your study overview.
       </p>
+      <WeatherWidget />
 
       <div className="stats">
         {[

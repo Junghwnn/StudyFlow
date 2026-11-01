@@ -376,3 +376,33 @@ button {
 .selected-day-panel h3 {
   margin-top: 0;
 }
+
+/* Weather Widget */
+
+.weather-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: #eef2ff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  margin-bottom: 25px;
+}
+
+.weather-card h3 {
+  margin: 0 0 8px;
+  color: #1e293b;
+}
+
+.weather-card p {
+  margin: 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.weather-card strong {
+  font-size: 28px;
+  color: #4f46e5;
+  white-space: nowrap;
+}
