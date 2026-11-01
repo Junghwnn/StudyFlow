@@ -22,3 +22,18 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# Dependencies
+node_modules/
+server/node_modules/
+
+# Database
+server/*.db
+server/*.db-*
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Build
+dist/
